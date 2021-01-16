@@ -1,7 +1,7 @@
 /*
  Name:		TFTLCD.ino
  Created:	1/16/2021 2:59:46 PM
- Author:	Brandon
+ Author:	Brandon Van Pelt
 */
 
 // the setup function runs once when you press reset or power the board
