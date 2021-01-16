@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TFTLCD", "TFTLCD\TFTLCD.vcxproj", "{C5F80730-F44F-4478-BDAE-6634EFC2CA88}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UTouch-0.0.0", "TFTLCD\Libraries\UTouch\0.0.0\UTouch\UTouch-0.0.0.vcxitems", "{B465F57C-F0E9-470B-9D63-1F650CC67B7B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UTFT-0.0.0", "TFTLCD\Libraries\UTFT\0.0.0\UTFT\UTFT-0.0.0.vcxitems", "{8E0EFF19-61A5-49E8-98B7-EFAE8E551C9A}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		TFTLCD\Libraries\UTFT\0.0.0\UTFT\UTFT-0.0.0.vcxitems*{8e0eff19-61a5-49e8-98b7-efae8e551c9a}*SharedItemsImports = 9
+		TFTLCD\Libraries\UTouch\0.0.0\UTouch\UTouch-0.0.0.vcxitems*{b465f57c-f0e9-470b-9d63-1f650cc67b7b}*SharedItemsImports = 9
+		TFTLCD\Libraries\UTFT\0.0.0\UTFT\UTFT-0.0.0.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
+		TFTLCD\Libraries\UTouch\0.0.0\UTouch\UTouch-0.0.0.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.ActiveCfg = Debug|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.Build.0 = Debug|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.ActiveCfg = Release|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDCA439B-5882-40D8-B751-0913F185267E}
+	EndGlobalSection
+EndGlobal
