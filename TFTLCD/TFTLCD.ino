@@ -37,8 +37,8 @@ extern uint8_t SmallFont[];
 extern uint8_t BigFont[];
 
 // Keeps track of current page
-uint8_t controlPage = 1;
-
+uint8_t page = 1;
+bool hasDrawn = false;
 // Draws the menu 1 page
 void drawPage1()
 {
@@ -190,15 +190,9 @@ void waitForItRect(int x1, int y1, int x2, int y2)
 }
 
 // Page control framework
-void pageControl(int page, bool value = false)
+void pageControl(bool value = false)
 {
-    // Static bool ensures the page is drawn only once while the loop is running
-    static bool hasDrawn;
-
-    // Seperated because compiler produces error with 1 line
-    // Call function with true value if you don't want a page to be drawn when called
     hasDrawn = value;
-
     while (true)
     {
         // Check if button on menu is pushed
@@ -213,7 +207,6 @@ void pageControl(int page, bool value = false)
                 // Call draw page here
                 drawPage1();
                 hasDrawn = true;
-                controlPage = page;
             }
             // Call buttons if any here
 
@@ -224,7 +217,6 @@ void pageControl(int page, bool value = false)
                 // Call draw page here
                 drawPage2();
                 hasDrawn = true;
-                controlPage = page;
             }
             // Call buttons if any here
             page2Buttons();
@@ -235,7 +227,6 @@ void pageControl(int page, bool value = false)
                 // Call draw page here
 
                 hasDrawn = true;
-                controlPage = page;
             }
             // Call buttons if any here
 
@@ -246,7 +237,6 @@ void pageControl(int page, bool value = false)
                 // Call draw page here
 
                 hasDrawn = true;
-                controlPage = page;
             }
             // Call buttons if any here
 
@@ -257,7 +247,6 @@ void pageControl(int page, bool value = false)
                 // Call draw page here
 
                 hasDrawn = true;
-                controlPage = page;
             }
             // Call buttons if any here
 
@@ -315,21 +304,23 @@ void menuButtons()
                 if ((y >= 10) && (y <= 65))  // Upper row
                 {
                     waitForIt(10, 10, 130, 65);
-                    pageControl(1);
+                    page = 1;
+                    hasDrawn = false;
                 }
                 if ((y >= 70) && (y <= 125))  // Upper row
                 {
 
                     // X_Start, Y_Start, X_Stop, Y_Stop
                     waitForIt(10, 70, 130, 125);
-                    pageControl(2);
-
+                    page = 2;
+                    hasDrawn = false;
                 }
                 if ((y >= 130) && (y <= 185))  // Upper row
                 {
                     // X_Start, Y_Start, X_Stop, Y_Stop
                     waitForIt(10, 130, 130, 185);
-                    pageControl(3);
+                    page = 3;
+                    hasDrawn = false;
                 }
                 // Settings touch button
                 if ((y >= 190) && (y <= 245))
@@ -337,14 +328,16 @@ void menuButtons()
 
                     // X_Start, Y_Start, X_Stop, Y_Stop
                     waitForIt(10, 190, 130, 245);
-                    pageControl(4);
+                    page = 4;
+                    hasDrawn = false;
                 }
                 if ((y >= 250) && (y <= 305))
                 {
 
                     // X_Start, Y_Start, X_Stop, Y_Stop
                     waitForIt(10, 250, 130, 305);
-                    pageControl(5);
+                    page = 5;
+                    hasDrawn = false;
                 }
 
             }
@@ -355,5 +348,5 @@ void menuButtons()
 
 // the loop function runs over and over again until power down or reset
 void loop() {
-    pageControl(controlPage);
+    pageControl();
 }
