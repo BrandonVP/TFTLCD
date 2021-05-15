@@ -39,6 +39,7 @@ extern uint8_t BigFont[];
 // Keeps track of current page
 uint8_t page = 1;
 bool hasDrawn = false;
+
 // Draws the menu 1 page
 void drawPage1()
 {
@@ -190,9 +191,8 @@ void waitForItRect(int x1, int y1, int x2, int y2)
 }
 
 // Page control framework
-void pageControl(bool value = false)
+void pageControl()
 {
-    hasDrawn = value;
     while (true)
     {
         // Check if button on menu is pushed
@@ -289,61 +289,58 @@ void drawMenu()
 // Buttons for the main menu
 void menuButtons()
 {
-    while (true)
+    // Touch screen controls
+    if (myTouch.dataAvailable())
     {
-        // Touch screen controls
-        if (myTouch.dataAvailable())
+        myTouch.read();
+        x = myTouch.getX();
+        y = myTouch.getY();
+
+        // Menu
+        if ((x >= 10) && (x <= 130))  // Button: 1
         {
-            myTouch.read();
-            x = myTouch.getX();
-            y = myTouch.getY();
-
-            // Menu
-            if ((x >= 10) && (x <= 130))  // Button: 1
+            if ((y >= 10) && (y <= 65))  // Upper row
             {
-                if ((y >= 10) && (y <= 65))  // Upper row
-                {
-                    waitForIt(10, 10, 130, 65);
-                    page = 1;
-                    hasDrawn = false;
-                }
-                if ((y >= 70) && (y <= 125))  // Upper row
-                {
-
-                    // X_Start, Y_Start, X_Stop, Y_Stop
-                    waitForIt(10, 70, 130, 125);
-                    page = 2;
-                    hasDrawn = false;
-                }
-                if ((y >= 130) && (y <= 185))  // Upper row
-                {
-                    // X_Start, Y_Start, X_Stop, Y_Stop
-                    waitForIt(10, 130, 130, 185);
-                    page = 3;
-                    hasDrawn = false;
-                }
-                // Settings touch button
-                if ((y >= 190) && (y <= 245))
-                {
-
-                    // X_Start, Y_Start, X_Stop, Y_Stop
-                    waitForIt(10, 190, 130, 245);
-                    page = 4;
-                    hasDrawn = false;
-                }
-                if ((y >= 250) && (y <= 305))
-                {
-
-                    // X_Start, Y_Start, X_Stop, Y_Stop
-                    waitForIt(10, 250, 130, 305);
-                    page = 5;
-                    hasDrawn = false;
-                }
-
+                waitForIt(10, 10, 130, 65);
+                page = 1;
+                hasDrawn = false;
             }
+            if ((y >= 70) && (y <= 125))  // Upper row
+            {
+
+                // X_Start, Y_Start, X_Stop, Y_Stop
+                waitForIt(10, 70, 130, 125);
+                page = 2;
+                hasDrawn = false;
+            }
+            if ((y >= 130) && (y <= 185))  // Upper row
+            {
+                // X_Start, Y_Start, X_Stop, Y_Stop
+                waitForIt(10, 130, 130, 185);
+                page = 3;
+                hasDrawn = false;
+            }
+            // Settings touch button
+            if ((y >= 190) && (y <= 245))
+            {
+
+                // X_Start, Y_Start, X_Stop, Y_Stop
+                waitForIt(10, 190, 130, 245);
+                page = 4;
+                hasDrawn = false;
+            }
+            if ((y >= 250) && (y <= 305))
+            {
+
+                // X_Start, Y_Start, X_Stop, Y_Stop
+                waitForIt(10, 250, 130, 305);
+                page = 5;
+                hasDrawn = false;
+            }
+
         }
-        return;
     }
+    return;
 }
 
 // the loop function runs over and over again until power down or reset
