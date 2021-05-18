@@ -193,65 +193,62 @@ void waitForItRect(int x1, int y1, int x2, int y2)
 // Page control framework
 void pageControl()
 {
-    while (true)
+    // Check if button on menu is pushed
+    menuButtons();
+
+    // Switch which page to load
+    switch (page)
     {
-        // Check if button on menu is pushed
-        menuButtons();
-
-        // Switch which page to load
-        switch (page)
+    case 1: 
+        if (!hasDrawn)
         {
-        case 1: 
-            if (!hasDrawn)
-            {
-                // Call draw page here
-                drawPage1();
-                hasDrawn = true;
-            }
-            // Call buttons if any here
-
-            break;
-        case 2:
-            if (!hasDrawn)
-            {
-                // Call draw page here
-                drawPage2();
-                hasDrawn = true;
-            }
-            // Call buttons if any here
-            page2Buttons();
-            break;
-        case 3:
-            if (!hasDrawn)
-            {
-                // Call draw page here
-
-                hasDrawn = true;
-            }
-            // Call buttons if any here
-
-            break;
-        case 4:
-            if (!hasDrawn)
-            {
-                // Call draw page here
-
-                hasDrawn = true;
-            }
-            // Call buttons if any here
-
-            break;
-        case 5:
-            if (!hasDrawn)
-            {
-                // Call draw page here
-
-                hasDrawn = true;
-            }
-            // Call buttons if any here
-
-            break;
+            // Call draw page here
+            drawPage1();
+            hasDrawn = true;
         }
+        // Call buttons if any here
+
+        break;
+    case 2:
+        if (!hasDrawn)
+        {
+            // Call draw page here
+            drawPage2();
+            hasDrawn = true;
+        }
+        // Call buttons if any here
+        page2Buttons();
+        break;
+    case 3:
+        if (!hasDrawn)
+        {
+            // Call draw page here
+
+            hasDrawn = true;
+        }
+        // Call buttons if any here
+
+        break;
+    case 4:
+        if (!hasDrawn)
+        {
+            // Call draw page here
+
+            hasDrawn = true;
+        }
+        // Call buttons if any here
+
+        break;
+    case 5:
+        if (!hasDrawn)
+        {
+            // Call draw page here
+
+            hasDrawn = true;
+        }
+        // Call buttons if any here
+
+        break;
     }
 }
 
@@ -344,6 +341,10 @@ void menuButtons()
 }
 
 // the loop function runs over and over again until power down or reset
-void loop() {
+void loop() 
+{
     pageControl();
+
+    // Call any background functions here in realtime 
+
 }
