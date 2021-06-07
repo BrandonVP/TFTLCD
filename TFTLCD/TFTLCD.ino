@@ -4,12 +4,10 @@
  Author:	Brandon Van Pelt
 */
 
-// the setup function runs once when you press reset or power the board
 #include <UTFT.h>
 #include <memorysaver.h>
 #include <UTouchCD.h>
 #include <UTouch.h>
-
 
 // Global LCD theme color variables
 #define themeBackground 0xFFFF // White
@@ -293,58 +291,48 @@ void menuButtons()
         x = myTouch.getX();
         y = myTouch.getY();
 
-        // Menu
-        if ((x >= 10) && (x <= 130))  // Button: 1
+        if ((x >= 10) && (x <= 130)) 
         {
-            if ((y >= 10) && (y <= 65))  // Upper row
+            if ((y >= 10) && (y <= 65))
             {
                 waitForIt(10, 10, 130, 65);
                 page = 1;
                 hasDrawn = false;
             }
-            if ((y >= 70) && (y <= 125))  // Upper row
+            if ((y >= 70) && (y <= 125))
             {
-
-                // X_Start, Y_Start, X_Stop, Y_Stop
                 waitForIt(10, 70, 130, 125);
                 page = 2;
                 hasDrawn = false;
             }
-            if ((y >= 130) && (y <= 185))  // Upper row
+            if ((y >= 130) && (y <= 185))
             {
-                // X_Start, Y_Start, X_Stop, Y_Stop
                 waitForIt(10, 130, 130, 185);
                 page = 3;
                 hasDrawn = false;
             }
-            // Settings touch button
             if ((y >= 190) && (y <= 245))
             {
-
-                // X_Start, Y_Start, X_Stop, Y_Stop
                 waitForIt(10, 190, 130, 245);
                 page = 4;
                 hasDrawn = false;
             }
             if ((y >= 250) && (y <= 305))
             {
-
-                // X_Start, Y_Start, X_Stop, Y_Stop
                 waitForIt(10, 250, 130, 305);
                 page = 5;
                 hasDrawn = false;
             }
-
         }
     }
-    return;
 }
 
 // the loop function runs over and over again until power down or reset
 void loop() 
 {
+    // GUI
     pageControl();
 
-    // Call any background functions here in realtime 
+    // Background processes
 
 }
