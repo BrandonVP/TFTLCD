@@ -9,10 +9,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UTouch-0.0.0", "TFTLCD\Libr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UTFT-0.0.0", "TFTLCD\Libraries\UTFT\0.0.0\UTFT\UTFT-0.0.0.vcxitems", "{8E0EFF19-61A5-49E8-98B7-EFAE8E551C9A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Adafruit_TouchScreen-1.1.1", "TFTLCD\Libraries\Adafruit_TouchScreen\1.1.1\Adafruit_TouchScreen\Adafruit_TouchScreen-1.1.1.vcxitems", "{B471B897-EBF5-426E-92F0-7FA434DE366D}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		TFTLCD\Libraries\UTFT\0.0.0\UTFT\UTFT-0.0.0.vcxitems*{8e0eff19-61a5-49e8-98b7-efae8e551c9a}*SharedItemsImports = 9
 		TFTLCD\Libraries\UTouch\0.0.0\UTouch\UTouch-0.0.0.vcxitems*{b465f57c-f0e9-470b-9d63-1f650cc67b7b}*SharedItemsImports = 9
+		TFTLCD\Libraries\Adafruit_TouchScreen\1.1.1\Adafruit_TouchScreen\Adafruit_TouchScreen-1.1.1.vcxitems*{b471b897-ebf5-426e-92f0-7fa434de366d}*SharedItemsImports = 9
+		TFTLCD\Libraries\Adafruit_TouchScreen\1.1.1\Adafruit_TouchScreen\Adafruit_TouchScreen-1.1.1.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
 		TFTLCD\Libraries\UTFT\0.0.0\UTFT\UTFT-0.0.0.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
 		TFTLCD\Libraries\UTouch\0.0.0\UTouch\UTouch-0.0.0.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
 	EndGlobalSection
