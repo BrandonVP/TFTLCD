@@ -16,6 +16,9 @@
 #define LI9486
 //#define LI9488
 
+#include "Input.h"
+#include "common.h"
+
 #if defined LI9486
 #include <TouchScreen.h>
 #include <MCUFRIEND_kbv.h>
@@ -98,7 +101,8 @@ uint8_t graphicLoaderState = 0;
 uint8_t page = 1;
 uint8_t nextPage = 1;
 bool hasDrawn = false;
-
+char keyboardInput[10] = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+uint8_t keypadInput[3] = { 0, 0, 0 };
 
 /*=========================================================
     Framework
@@ -226,7 +230,7 @@ void pageControl()
         // Draw Page
         if (!hasDrawn)
         {
-            if (!drawPage1())
+            if (drawPage1())
             {
                 graphicLoaderState++;
             }
@@ -250,7 +254,7 @@ void pageControl()
         // Draw Page
         if (!hasDrawn)
         {
-            if (!drawPage2())
+            if (drawPage2())
             {
                 graphicLoaderState++;
             }
@@ -416,7 +420,7 @@ bool Touch_getXY(void)
     digitalWrite(YP, HIGH);   //because TFT control pins
     digitalWrite(XM, HIGH);
     bool pressed = (p.z > MINPRESSURE && p.z < MAXPRESSURE);
-    if (pressed) 
+    if (pressed)
     {
         y = 320 - map(p.x, TS_LEFT, TS_RT, 0, 320); //.kbv makes sense to me
         x = map(p.y, TS_TOP, TS_BOT, 0, 480);
@@ -459,7 +463,7 @@ void backgroundProcess()
 }
 
 // the loop function runs over and over again until power down or reset
-void loop() 
+void loop()
 {
     // GUI
     pageControl();
@@ -475,6 +479,11 @@ void loop()
 // Draws the menu 1 page
 bool drawPage1()
 {
+
+    drawSquareBtn(131, 55, 479, 319, "", themeBackground, themeBackground, themeBackground, CENTER);
+    drawSquareBtn(140, 80, 305, 130, F("S"), menuBtnColor, menuBtnBorder, menuBtnText, CENTER);
+
+    /*
     switch (graphicLoaderState)
     {
     case 0:
@@ -510,10 +519,11 @@ bool drawPage1()
         drawSquareBtn(150, 301, 479, 319, VERSION, themeBackground, themeBackground, menuBtnColor, CENTER);
         break;
     case 11:
-        return true;
+        return false;;
         break;
     }
-    return false;
+    return true;
+    */
 }
 
 
@@ -558,10 +568,10 @@ bool drawPage2()
         drawSquareBtn(150, 301, 479, 319, VERSION, themeBackground, themeBackground, menuBtnColor, CENTER);
         break;
     case 11:
-        return true;
+        return false;
         break;
     }
-    return false;
+    return true;
 }
 
 // Button functions for config page
